@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\GETController;
+use App\Http\Controllers\OAuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [GETController::class, 'home']);
-Route::get('/google-login', [GETController::class, 'googleLogin']);
-Route::get('/facebook-login', [GETController::class, 'facebookLogin']);
-Route::get('/github-login', [GETController::class, 'githubLogin']);
-Route::get('/profile', [GETController::class, 'profile']);
-Route::get('/logout', [GETController::class, 'logout']);
+
+
+Route::get('/', [OAuthController::class, 'viewHome']);
+Route::get('/profile', [OAuthController::class, 'viewProfile']);
+Route::get('/oauth/redirect/{driver}', [OAuthController::class, 'redirect']);
+Route::get('/oauth/callback/{driver}', [OAuthController::class, 'callback']);
+Route::get('/logout', [OAuthController::class, 'logout']);

@@ -12,10 +12,10 @@
     <div class="row">
       <div class="col">
         <div>
-          <img src="{{session('user_picture')}}" alt="">
+          <img src="{{ session('picture') }}" alt="">
         </div>
-        <h2>{{session('user_first_name')}} {{session('user_last_name')}}</h2>
-        <p>Email: {{session('user_email')}}</p>
+        <h2>{{ session('name') }}</h2>
+        <p>Email: {{ session('email') }}</p>
         <form action="logout" method="GET">
           <input type="submit" value="Logout">
         </form>
